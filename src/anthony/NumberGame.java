@@ -15,6 +15,7 @@ public class NumberGame {
         System.out.println("Choose a number; any number:");
 
         secretNumber = keyboard.nextInt();
+
         System.out.println("good choice!");
         System.out.println("");
         System.out.println("NOW ITS MY TURN. Guess a number between 1 and 20.");
@@ -23,14 +24,14 @@ public class NumberGame {
         while (!bingo) {
             System.out.print("Guess My Number.:");
             userGuess = keyboard.nextInt();
-                if (userGuess == random) {
-                    bingo = true;
-                    System.out.println("Bingo! I will give you " + secretNumber + " cheeseburgers. Let's play again?");
-                } else if (userGuess < random) {
-                    System.out.println("Higher.");
-                } else if (userGuess > random) {
-                    System.out.println("Lower.");
-                }
+            if (userGuess == random) {
+                bingo = true;
+                System.out.println("Bingo! I will give you " + secretNumber + " cheeseburgers. Let's play again?");
+            } else if (userGuess < random) {
+                System.out.println("Higher.");
+            } else if (userGuess > random) {
+                System.out.println("Lower.");
             }
+        }
     }
 }
