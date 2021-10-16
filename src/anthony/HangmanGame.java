@@ -39,6 +39,7 @@ public class HangmanGame {
             Matcher matcher = pattern.matcher(usersGuess);
             boolean matches = matcher.matches();
             boolean isCorrect = false;
+            int numberCorrect =0;
             if(matches && usersGuess.length() == 1) {
                 char letter = Character.toLowerCase(usersGuess.charAt(0));
                 System.out.println("You chose: " + letter); // case test
@@ -48,6 +49,11 @@ public class HangmanGame {
                         System.out.println(letters);
                         System.out.println(" ");
                         isCorrect=true;
+                        numberCorrect++;
+                        if(numberCorrect == secretWord.length()){
+                            System.out.println("Congratulations!");
+                            System.exit(0);
+                        }
                     }
                 }
                 if(!isCorrect){
@@ -69,6 +75,11 @@ public class HangmanGame {
                             System.out.println(letters);
                             System.out.println(" ");
                             isCorrect=true;
+                            numberCorrect++;
+                            if(numberCorrect == secretWord.length()){
+                                System.out.println("Congratulations!");
+                                System.exit(0);
+                            }
                         }
                     }
                     if(!isCorrect){
@@ -81,6 +92,9 @@ public class HangmanGame {
                     System.exit(0);
                 }
             }
+        }
+        if(lives ==0){
+            System.out.println("Out of guesses.");
         }
         System.out.println("Exiting Hangman...");
     }
