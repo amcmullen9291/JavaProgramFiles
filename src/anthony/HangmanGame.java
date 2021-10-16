@@ -2,7 +2,7 @@ package anthony;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// Note: the while loop is currently in an infinite loop. DO NOT RUN YET
 public class HangmanGame {
     public static void main(String[] args) {
         String[] words = {"puppy", "vacation", "summer", "oxymoron", "hyperbole", "Champagne",
