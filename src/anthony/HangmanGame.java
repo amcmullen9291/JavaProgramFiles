@@ -42,46 +42,41 @@ public class HangmanGame {
             if(matches && usersGuess.length() == 1) {
                 char letter = Character.toLowerCase(usersGuess.charAt(0));
                 System.out.println("You chose: " + letter); // case test
-                for(int p = 0; p> secretWord.length(); p++){
-                    char x = secretWord.charAt(p);
-                    System.out.println(x);
-                    if(letter == x){
-                        letters[p]  = x;
-                        isCorrect = true;
-                        for(int m=0; m<letters.length; m++){
-                            System.out.print(letters[m]);
-                        }
+                for(int x=0; x<secretWord.length(); x++){
+                    if(secretWord.charAt(x) == letter){
+                        letters[x] = letter;
+                        System.out.println(letters);
+                        System.out.println(" ");
+                        isCorrect=true;
                     }
                 }
-                if(!isCorrect) {
+                if(!isCorrect){
                     --lives;
+                    System.out.println(letters);
+                    System.out.println(" ");
                 }
-                if(lives ==0){
-                    System.out.println("Out of guesses.");
-                }
-            }else{
+            }else {
                 System.out.println("That was not a letter. Please select one letter, A-Z.");
                 usersGuess = scanner.nextLine();
                 Matcher matcher2 = pattern.matcher(usersGuess);
                 boolean matches2 = matcher2.matches();
-                if(matches2 && usersGuess.length() == 1) {
+                if (matches2 && usersGuess.length() == 1) {
                     char letter = Character.toLowerCase(usersGuess.charAt(0));
                     System.out.println("You chose: " + letter); //case check
-                    for(int p = 0; p > secretWord.length(); p++){
-                        char x = secretWord.charAt(p);
-                        if(letter == x){
-                            letters[p] = x;
-                            isCorrect = true;
+                    for (int x = 0; x < secretWord.length(); x++) {
+                        if (secretWord.charAt(x) == letter) {
+                            letters[x] = letter;
+                            System.out.println(letters);
+                            System.out.println(" ");
+                            isCorrect=true;
                         }
                     }
-                    if(!isCorrect) {
+                    if(!isCorrect){
                         --lives;
                         System.out.println(letters);
+                        System.out.println(" ");
                     }
-                    if (lives == 0) {
-                        System.out.println("Out of guesses.");
-                    }
-                } else{
+                } else {
                     System.out.println("GOODBYE!");
                     System.exit(0);
                 }
