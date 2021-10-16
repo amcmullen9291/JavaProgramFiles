@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 
 public class HangmanGame {
     public static void main(String[] args) {
-        String[] words = {"puppy", "vacation", "football", "oxymoron", "hyperbole", "Champagne",
-                "Germany", "JavaScript", "Java", "modifier", "sandwich", "cartoon",
-                "campus", "compass", "water", "salamander", "grape", "orange", "Auburn", "Kalamazoo"};
+        String[] words = {"puppy", "vacation", "football", "oxymoron", "hyperbole", "champagne",
+                "germany", "javascript", "java", "modifier", "sandwich", "cartoon",
+                "campus", "compass", "water", "salamander", "grape", "orange", "auburn", "kalamazoo"};
         int random  = (int) (Math.random() * words.length);
         String secretWord = words[random];
         char[] letters = new char[secretWord.length()];
@@ -44,20 +44,21 @@ public class HangmanGame {
                 System.out.println("You chose: " + letter); // case test
                 for(int p = 0; p> secretWord.length(); p++){
                     char x = secretWord.charAt(p);
-                    if(x == letter){
-                        letters[p] = x;
+                    System.out.println(x);
+                    if(letter == x){
+                        letters[p]  = x;
                         isCorrect = true;
+                        for(int m=0; m<letters.length; m++){
+                            System.out.print(letters[m]);
+                        }
                     }
                 }
                 if(!isCorrect) {
                     --lives;
-                    System.out.println(letters);
                 }
                 if(lives ==0){
                     System.out.println("Out of guesses.");
                 }
-                System.out.println(letters);
-
             }else{
                 System.out.println("That was not a letter. Please select one letter, A-Z.");
                 usersGuess = scanner.nextLine();
@@ -68,7 +69,7 @@ public class HangmanGame {
                     System.out.println("You chose: " + letter); //case check
                     for(int p = 0; p > secretWord.length(); p++){
                         char x = secretWord.charAt(p);
-                        if(x == letter){
+                        if(letter == x){
                             letters[p] = x;
                             isCorrect = true;
                         }
@@ -80,7 +81,6 @@ public class HangmanGame {
                     if (lives == 0) {
                         System.out.println("Out of guesses.");
                     }
-                    System.out.println(letters);
                 } else{
                     System.out.println("GOODBYE!");
                     System.exit(0);
