@@ -1,9 +1,9 @@
 package anthony;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HangmanGame {
     public static void main(String[] args) {
@@ -17,9 +17,7 @@ public class HangmanGame {
         System.out.println("JAVA - HANGMAN (written by Anthony)");
         System.out.println(".");
 
-        for(int blankSpace=0; blankSpace<letters.length; blankSpace++){
-            letters[blankSpace] = '_';
-        }
+        Arrays.fill(letters, '_');
         System.out.println(letters);
 
         int lives = 5;
@@ -39,22 +37,21 @@ public class HangmanGame {
             Pattern pattern = Pattern.compile(patternString);
             Matcher matcher = pattern.matcher(usersGuess);
             boolean matches = matcher.matches();
-            if(matches) {
-                char letter = usersGuess.charAt(0);
+            if(matches && usersGuess.length() == 1) {
+                char letter = Character.toLowerCase(usersGuess.charAt(0));
             }else{
                 System.out.println("That was not a letter. Please select a letter, A-Z.");
                 usersGuess = scanner.nextLine();
                 Matcher matcher2 = pattern.matcher(usersGuess);
                 boolean matches2 = matcher2.matches();
-                if(matches2) {
-                    char letter = usersGuess.charAt(0);
+                if(matches2 && usersGuess.length() == 1) {
+                    char letter = Character.toLowerCase(usersGuess.charAt(0));
                 }else{
                     System.out.println("GOODBYE!");
                     System.exit(0);
                 }
             }
         }
-
     }
 }
 
