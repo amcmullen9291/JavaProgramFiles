@@ -7,9 +7,7 @@ import java.util.regex.Pattern;
 
 public class HangmanGame {
     public static void main(String[] args) {
-        String[] words = {"puppy", "vacation", "football", "oxymoron", "hyperbole", "champagne",
-                "germany", "javascript", "java", "modifier", "sandwich", "cartoon",
-                "campus", "compass", "water", "salamander", "grape", "orange", "auburn", "kalamazoo"};
+        String[] words = {"puppy", "vacation", "football", "oxymoron", "hyperbole", "champagne", "germany", "javascript", "java", "modifier", "sandwich", "cartoon", "campus", "compass", "water", "salamander", "grape", "orange", "auburn", "kalamazoo"};
         int random  = (int) (Math.random() * words.length);
         String secretWord = words[random];
         char[] letters = new char[secretWord.length()];
@@ -21,8 +19,10 @@ public class HangmanGame {
         System.out.println(letters);
 
         int lives = 5;
+        int lettersLeft =secretWord.length();
+
         Scanner scanner= new Scanner(System.in);
-        while(lives > 0){
+        while(lives > 0 && lettersLeft > 0){
             System.out.print("Guesses remaining: ");
             for (int i =0; i < lives; i++){
                 System.out.print("X");
@@ -39,7 +39,6 @@ public class HangmanGame {
             Matcher matcher = pattern.matcher(usersGuess);
             boolean matches = matcher.matches();
             boolean isCorrect = false;
-            int numberCorrect =0;
             if(matches && usersGuess.length() == 1) {
                 char letter = Character.toLowerCase(usersGuess.charAt(0));
                 System.out.println("You chose: " + letter); // case test
@@ -49,8 +48,8 @@ public class HangmanGame {
                         System.out.println(letters);
                         System.out.println(" ");
                         isCorrect=true;
-                        numberCorrect++;
-                        if(numberCorrect == secretWord.length()){
+                        --lettersLeft;
+                        if(lettersLeft == 0){
                             System.out.println("Congratulations!");
                             System.exit(0);
                         }
@@ -75,11 +74,7 @@ public class HangmanGame {
                             System.out.println(letters);
                             System.out.println(" ");
                             isCorrect=true;
-                            numberCorrect++;
-                            if(numberCorrect == secretWord.length()){
-                                System.out.println("Congratulations!");
-                                System.exit(0);
-                            }
+                            --lettersLeft;
                         }
                     }
                     if(!isCorrect){
