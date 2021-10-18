@@ -21,7 +21,7 @@ public class NumberGame {
         System.out.println("NOW ITS MY TURN. Guess a number between 1 and 20.");
         System.out.println("***FYI, my number for this round is " + random + ". (Ain't I a stinker?)");
 
-        String[] foods = {"bananas", "corndogs", "tacos and burritos", "a bottle of mouth wash", "sticks of chewing gum", "corn cob pipes"};
+        String[] foods = {"bananas", "corndogs", "pillowcases", "four leaf clovers", "tacos and burritos", "hula hoops", "bottles of mouth wash", "sticks of chewing gum", "corn cob pipes"};
         int randomFood = (int) (Math.random() * 6 + 1);
         String endFood = foods[randomFood];
         while (!bingo) {
