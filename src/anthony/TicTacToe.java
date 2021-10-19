@@ -13,7 +13,7 @@ public class TicTacToe {
                 {' ', ' ', ' '}};
 
         printBoard(gameBoard);
-//        userTokenInput();
+        game.userTokenInput();
 
         while (true) {
             game.playerTurn(gameBoard, scanner);
@@ -186,5 +186,16 @@ public class TicTacToe {
                System.out.println("Would you like to be Xs or Os?");
                String userTokenInput = input.nextLine();
                userToken = Character.toUpperCase(userTokenInput.charAt(0));
+               while(!((userToken == 'X') || (userToken == 'B'))) {
+                   System.out.println("Please Select either 'X' or 'O'");
+                  userTokenInput = input.nextLine();
+                    userToken = Character.toUpperCase(userTokenInput.charAt(0));
+                    System.out.println("You Chose: " + userToken);
+               }
+               if(userToken == 'X'){
+                   computerToken ='O';
+               }else{                                   
+                   computerToken = 'X';
+               }
            }
 }
