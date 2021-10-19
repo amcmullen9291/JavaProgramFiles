@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
     public static void main(String[] args) {
-
+        TicTacToe game = new TicTacToe();
         Scanner scanner = new Scanner(System.in);
 
         char[][] gameBoard = {{' ', ' ', ' '},
@@ -13,16 +13,17 @@ public class TicTacToe {
                 {' ', ' ', ' '}};
 
         printBoard(gameBoard);
+//        userTokenInput();
 
         while (true) {
-            playerTurn(gameBoard, scanner);
-            if (isGameFinished(gameBoard)){
+            game.playerTurn(gameBoard, scanner);
+            if (game.isGameFinished(gameBoard)){
                 break;
             }
             printBoard(gameBoard);
 
-            computerTurn(gameBoard);
-            if (isGameFinished(gameBoard)){
+            game.computerTurn(gameBoard);
+            if (game.isGameFinished(gameBoard)){
                 break;
             }
             printBoard(gameBoard);
@@ -31,17 +32,17 @@ public class TicTacToe {
     }
 
 
-    private static boolean isGameFinished(char[][] board) {
+    public boolean isGameFinished(char[][] board) {
 
-        if (gameOver(board, 'O')) {
+        if (gameOver(board, userToken)) {
             printBoard(board);
             System.out.println("You wins!");
             return true;
         }
 
-        if (gameOver(board, 'X')) {
+        if (gameOver(board, computerToken)) {
             printBoard(board);
-            System.out.println("Computer wins!");
+            System.out.println("Sorry, the Computer wins!");
             return true;
         }
 
@@ -53,7 +54,7 @@ public class TicTacToe {
             }
         }
         printBoard(board);
-        System.out.println("Its a tie!");
+        System.out.println("It's a tie!");
         return true;
     }
 
@@ -74,8 +75,9 @@ public class TicTacToe {
         return false;
     }
 
-
-    private static void computerTurn(char[][] board) {
+    char userToken;
+    char computerToken;
+    private void computerTurn(char[][] board) {
         Random rand = new Random();
         int computerMove;
         while (true) {
@@ -85,7 +87,13 @@ public class TicTacToe {
             }
         }
         System.out.println("Computer chose " + computerMove);
-        placeMove(board, Integer.toString(computerMove), 'X');
+//        char gamePiece = ' ';
+        if (userToken == 'O') {
+            computerToken = 'X';
+        }else{
+            computerToken = 'O';
+        }
+        placeMove(board, Integer.toString(computerMove), computerToken);
     }
 
 
@@ -114,10 +122,10 @@ public class TicTacToe {
         }
     }
 
-    private static void playerTurn(char[][] board, Scanner scanner) {
+    private void playerTurn(char[][] board, Scanner scanner) {
         String userInput;
         while (true) {
-            System.out.println("Choose an available spot (1-9).");
+            System.out.println("Choose an available space (1-9).");
             userInput = scanner.nextLine();
             if (isValidMove(board, userInput)){
                 break;
@@ -125,7 +133,7 @@ public class TicTacToe {
                 System.out.println(userInput + " is not a valid move.");
             }
         }
-        placeMove(board, userInput, 'O');
+        placeMove(board, userInput, userToken);
     }
 
 
@@ -166,13 +174,17 @@ public class TicTacToe {
 
 
 
-    private static void printBoard(char[][] gameBoard) {
-        System.out.println(gameBoard[0][0] + "|" +  gameBoard[0][1] + "|" +  gameBoard[0][2] );
-        System.out.println("=+=+=");
-        System.out.println(gameBoard[1][0] + "|" +  gameBoard[1][1] + "|" +  gameBoard[1][2] );
-        System.out.println("=+=+=");
-        System.out.println(gameBoard[2][0] + "|" +  gameBoard[2][1] + "|" +  gameBoard[2][2] );
-        System.out.println("____________________________");
+    private static void printBoard(char[][] board) {
+        System.out.println(board[0][0] + "|" +  board[0][1] + "|" +  board[0][2] );
+        System.out.println("-+-+-");
+        System.out.println(board[1][0] + "|" +  board[1][1] + "|" +  board[1][2] );
+        System.out.println("-+-+-");
+        System.out.println(board[2][0] + "|" +  board[2][1] + "|" +  board[2][2] );
     }
-
+    public void userTokenInput(){
+        Scanner input = new Scanner(System.in);
+               System.out.println("Would you like to be Xs or Os?");
+               String userTokenInput = input.nextLine();
+               userToken = Character.toUpperCase(userTokenInput.charAt(0));
+           }
 }
