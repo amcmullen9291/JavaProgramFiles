@@ -36,7 +36,7 @@ public class TicTacToe {
 
         if (gameOver(board, userToken)) {
             printBoard(board);
-            System.out.println("You wins!");
+            System.out.println("You win!");
             return true;
         }
 
@@ -186,15 +186,15 @@ public class TicTacToe {
                System.out.println("Would you like to be Xs or Os?");
                String userTokenInput = input.nextLine();
                userToken = Character.toUpperCase(userTokenInput.charAt(0));
-               while(!((userToken == 'X') || (userToken == 'B'))) {
+               while(!((userToken == 'X') || (userToken == 'O'))) {
                    System.out.println("Please Select either 'X' or 'O'");
                   userTokenInput = input.nextLine();
                     userToken = Character.toUpperCase(userTokenInput.charAt(0));
-                    System.out.println("You Chose: " + userToken);
                }
+        System.out.println("You Chose: " + userToken);
                if(userToken == 'X'){
                    computerToken ='O';
-               }else{                                   
+               }else if(userToken=='O'){
                    computerToken = 'X';
                }
            }
