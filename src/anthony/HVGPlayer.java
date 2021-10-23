@@ -12,6 +12,7 @@ public class HVGPlayer extends Rectangle{
 //    int goblinID;
     int id;
     int speed = 10;
+    int goblinSpeed = 15;
     int yVelocity;
     int xVelocity;
 
@@ -43,20 +44,20 @@ public class HVGPlayer extends Rectangle{
             break;
         case 2:
             if(e.getKeyCode()==KeyEvent.VK_LEFT){
-                setXDirection(-speed);
+                setXDirection(-goblinSpeed);
                 move();
             }
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                setXDirection(speed);
+                setXDirection(goblinSpeed);
                 move();
             }
             if(e.getKeyCode()==KeyEvent.VK_UP){
-                setYDirection(-speed);
+                setYDirection(-goblinSpeed);
                 move();
             }
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                setYDirection(speed);
+                setYDirection(goblinSpeed);
                 move();
             }
             break;
@@ -85,21 +86,21 @@ public class HVGPlayer extends Rectangle{
             }
             break;
         case 2:
-            if(e.getKeyCode()==KeyEvent.VK_LEFT){
-                setXDirection(0);
+            if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                setXDirection(15);
                 move();
             }
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                setXDirection(0);
+                setXDirection(15);
                 move();
             }
             if(e.getKeyCode()==KeyEvent.VK_UP){
-                setYDirection(0);
+                setYDirection(15);
                 move();
             }
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                setYDirection(0);
+                setYDirection(15);
                 move();
             }
             break;
@@ -113,6 +114,9 @@ public class HVGPlayer extends Rectangle{
     public void setXDirection(int xDirection){
         xVelocity=xDirection;
     }
+//    public void followHumanAcross (int xDirection, int xVelocity ){
+//        xDirection =
+//    }
 
     public void move(){
         x=x+xVelocity;
