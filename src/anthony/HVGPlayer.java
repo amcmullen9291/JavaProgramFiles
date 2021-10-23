@@ -15,6 +15,8 @@ public class HVGPlayer extends Rectangle{
     int goblinSpeed = 6;
     int yVelocity;
     int xVelocity;
+    HVGGamePanel forward;
+    Graphics g;
 
     HVGPlayer(int xAxisStart, int yAxisStart, int player_width, int player_height, int id){
         super(xAxisStart, yAxisStart, player_width, player_height);
