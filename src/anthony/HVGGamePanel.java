@@ -66,7 +66,30 @@ public class HVGGamePanel extends JPanel implements Runnable{
     }
 
     public void checkContact() {
-
+        if(player1.y <=0){
+            player1.y=0;
+        }
+        if(player1.y >=(GAME_HEIGHT-player_height)){
+            player1.y=GAME_HEIGHT-player_height;
+        }
+        if(player1.x <=0){
+            player1.x=0;
+        }
+        if(player1.x >=(GAME_WIDTH-player_width)){
+            player1.x=GAME_WIDTH-player_width;
+        }
+        if(goblin.y <=0){
+            goblin.y=0;
+        }
+        if(goblin.y >=(GAME_HEIGHT-player_height)){
+            goblin.y=GAME_HEIGHT-player_height;
+        }
+        if(goblin.x <=0){
+            goblin.x=0;
+        }
+        if(goblin.x >=(GAME_WIDTH-player_width)){
+            goblin.x=GAME_WIDTH-player_width;
+        }
     }
 
     public void run(){
