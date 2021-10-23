@@ -17,6 +17,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
     static final int goblin_height = 60;
     static final int goblin_width = 40;
 
+
     Thread gameThread;
     Image image;
     Random random;
@@ -39,30 +40,42 @@ public class HVGGamePanel extends JPanel implements Runnable{
     }
 
     public void newAttack() {
+        int playerLocationX = (int)player1.getX(); //starts ball from player1
+        int playerLocationY = (int)player1.getY(); //starts ball from player1
+
+        attack = new HVGAttack(playerLocationX, playerLocationY, BALLISTIC_DIAMETER, BALLISTIC_DIAMETER);
+        goblin.getX();
+        goblin.getY();
+        if(Math.random() <= .5){
+            attack.targetGoblin((int)player1.getX()+1, (int)player1.getY());
+        }else{
+            attack.missedShot((int)player1.getX(), (int)player1.getY());
+        }//testing. start from player1 and go forward...
 
     }
 
     public void newPlayer() {
         player1 = new HVGPlayer(0,(GAME_HEIGHT/2)-(player_height/2),player_width, player_height, 1 );
         goblin = new HVGPlayer(GAME_WIDTH-goblin_width,15,goblin_width, goblin_height,2 );
-
     }
 
     public void paint(Graphics g) {
         image = createImage(getWidth(), getHeight());
         graphics = image.getGraphics();
         draw(graphics);
-        g.drawImage(image,0, 0,this); // change coords to make where player is located
+        g.drawImage(image,0, 0,this);
     }
 
     public void draw(Graphics g) {
         player1.draw(g);
         goblin.draw(g);
-
+        attack.draw(g);
     }
 
     public void move(){
-
+        player1.move();
+        goblin.move();
+        attack.move();
     }
 
     public void checkContact() {

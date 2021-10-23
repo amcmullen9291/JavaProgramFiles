@@ -11,8 +11,8 @@ public class HVGPlayer extends Rectangle{
 //    int player1ID;
 //    int goblinID;
     int id;
-    int speed = 10;
-    int goblinSpeed = 15;
+    int speed = 5;
+    int goblinSpeed = 6;
     int yVelocity;
     int xVelocity;
 
@@ -36,7 +36,6 @@ public class HVGPlayer extends Rectangle{
                 setYDirection(-speed);
                 move();
         }
-
             if(e.getKeyCode()==KeyEvent.VK_S){
                 setYDirection(speed);
                 move();
@@ -87,20 +86,20 @@ public class HVGPlayer extends Rectangle{
             break;
         case 2:
             if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                setXDirection(15);
+                setXDirection(0);
                 move();
             }
-            if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                setXDirection(15);
+            if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                setXDirection(0);
                 move();
             }
-            if(e.getKeyCode()==KeyEvent.VK_UP){
-                setYDirection(15);
+            if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                setYDirection(0);
                 move();
             }
 
-            if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                setYDirection(15);
+            if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                setYDirection(0);
                 move();
             }
             break;
