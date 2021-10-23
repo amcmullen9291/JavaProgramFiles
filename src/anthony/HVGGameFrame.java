@@ -15,7 +15,6 @@ public class HVGGameFrame extends JFrame{
         this.add(panel);
         this.setTitle("HVG: Humans vs. Goblins");
         this.setResizable(false);
-//        this.setBackground(Color.yellow);
         this.setBackground(Color.GREEN);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();

@@ -15,7 +15,6 @@ public class HVGPlayer extends Rectangle{
     int goblinSpeed = 6;
     int yVelocity;
     int xVelocity;
-    HVGGamePanel forward;
     Graphics g;
 
     HVGPlayer(int xAxisStart, int yAxisStart, int player_width, int player_height, int id){
@@ -71,6 +70,7 @@ public class HVGPlayer extends Rectangle{
             if(e.getKeyCode()==KeyEvent.VK_W){
                 setXDirection(0);
                 move();
+
             }
             if(e.getKeyCode()==KeyEvent.VK_E){
                 setXDirection(0);
