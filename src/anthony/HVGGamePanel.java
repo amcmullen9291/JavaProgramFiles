@@ -89,11 +89,13 @@ public class HVGGamePanel extends JPanel implements Runnable{
 
     public class ActionListener extends KeyAdapter{
         public void keyPressed(KeyEvent e){
-
+            player1.keyPressed(e);
+            goblin.keyPressed(e);
         }
 
         public void keyReleased(KeyEvent e){
-
+            player1.keyReleased(e);
+            goblin.keyReleased(e);
         }
     }
 }
