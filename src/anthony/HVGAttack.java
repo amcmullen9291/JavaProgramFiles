@@ -22,7 +22,7 @@ public class HVGAttack extends Rectangle{
 
     public void missedShot( int randomDirectionX, int randomDirectionY){
 
-    }
+    } // arguments come from 'setDirection' and 'setYDirection' methods
 
     public void move (){
 

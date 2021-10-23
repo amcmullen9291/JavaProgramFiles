@@ -10,8 +10,8 @@ public class HVGScore extends Rectangle{
 
     static int GAME_WIDTH;
     static int GAME_HEIGHT;
-    int humans;
-    int goblins;
+    int player1;
+    int goblin;
 
      HVGScore(int GAME_WIDTH, int GAME_HEIGHT){
 

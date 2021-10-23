@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-//import java.awt.Color;
+import java.awt.Color;
 
 public class HVGGameFrame extends JFrame{
 
@@ -16,7 +16,7 @@ public class HVGGameFrame extends JFrame{
         this.setTitle("HVG: Humans vs. Goblins");
         this.setResizable(false);
 //        this.setBackground(Color.yellow);
-        panel.setBackground(Color.green);
+        this.setBackground(Color.GREEN);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
