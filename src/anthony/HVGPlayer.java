@@ -2,14 +2,10 @@ package anthony;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
 import java.awt.Color;
 
 public class HVGPlayer extends Rectangle{
 
-    //    int player1ID;
-//    int goblinID;
     int id;
     int speed = 5;
     int goblinSpeed = 6;
@@ -158,9 +154,6 @@ public class HVGPlayer extends Rectangle{
     public void setXDirection(int xDirection){
         xVelocity=xDirection;
     }
-//    public void followHumanAcross (int xDirection, int xVelocity ){
-//        xDirection =
-//    }
 
     public void move(){
         x=x+xVelocity;

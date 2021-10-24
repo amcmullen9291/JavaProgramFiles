@@ -1,9 +1,6 @@
 package anthony;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
 import java.awt.Color;
 
 public class HVGScore extends Rectangle {
@@ -31,17 +28,5 @@ public class HVGScore extends Rectangle {
     void levelComplete(){
         System.out.println("Congratulations!");
     }
-
-//    public static class Congrats extends HVGScore{
-//        Congrats(int GAME_WIDTH, int GAME_HEIGHT) {
-//            super(GAME_WIDTH, GAME_HEIGHT);
-//        }
-
-//        @Override
-//        public void levelComplete(){
-//            System.out.println("You are ready for another challenge.");
-//        }
-//    }
-
 }
 

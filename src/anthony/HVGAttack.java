@@ -1,9 +1,7 @@
 package anthony;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
-import javax.swing.*;
 import java.awt.Color;
 
 public class HVGAttack extends Rectangle{
@@ -64,20 +62,4 @@ public class HVGAttack extends Rectangle{
         g.setColor(Color.WHITE);
         g.fillOval(x,y,width,height);
     }
-//    public void keyPressed(KeyEvent e) {
-//        int chance = (int) Math.random();
-//        if (chance < .5) {
-//            if (e.getKeyCode() == KeyEvent.VK_1) {
-//                setXDirection(movingSpeed);  //missed target
-//                setYDirection(movingSpeed);
-//                move();
-//            } else {
-//                if (e.getKeyCode() == KeyEvent.VK_H) {
-//                    setXDirection(movingSpeed);  //direct hit
-//                    move();
-//                }
-//            }
-//        }
-//    }
-
 }

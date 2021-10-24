@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-import java.awt.Color;
 
 public class HVGGamePanel extends JPanel implements Runnable{
 
@@ -51,7 +50,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
             attack.targetGoblin((int)player1.getX()+1, (int)player1.getY());
         }else{
             attack.missedShot((int)player1.getX(), (int)player1.getY());
-        }//testing. start from player1 and go forward...
+        }
 
     }
 
@@ -119,7 +118,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
         }
         //checks for direct hit
         if(attack.intersects(goblin)){
-            System.out.println("Direct hit"); //prints multiple times bc of refresh rate
+            System.out.println("Direct hit"); //prints multiple times bc of refresh rate?
             score.goblinHealth -= 5;
             System.out.println("your health: " + score.goblinHealth + " units left.");
         }
