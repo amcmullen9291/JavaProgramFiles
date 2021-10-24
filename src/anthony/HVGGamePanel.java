@@ -120,7 +120,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
         //checks for direct hit
         if(attack.intersects(goblin)){
             System.out.println("Direct hit"); //prints multiple times bc of refresh rate?
-            score.goblinHealth -= 5;
+            score.goblinHealth -= 7;
             System.out.println("your health: " + score.goblinHealth + " units left.");
         }
         if(goblin.x==0){
@@ -141,6 +141,12 @@ public class HVGGamePanel extends JPanel implements Runnable{
             newPlayer();
             newAttack();
         } //game reset
+        if(goblin.intersects(player1)){
+                JOptionPane.showMessageDialog(null, "A Battle ensues.");
+                score.goblinHealth -= 5;
+                newAttack();
+                move();
+        }//battle result
     }
 
     public void run(){
@@ -154,7 +160,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
             lastTime = now;
             if(delta>=1){
                 move();
-                checkContact();
+          g      checkContact();
                 repaint();
                 delta--;
             }
