@@ -182,7 +182,10 @@ public class HVGGamePanel extends JPanel implements Runnable{
         }
         if(goblin.intersects(wall6)){
             goblin.setYDirection(1);
-
+        }
+        if(player1.x >=GAME_WIDTH){
+            newPlayer();
+            newAttack();
         }
     }
 
