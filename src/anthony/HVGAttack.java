@@ -16,8 +16,6 @@ public class HVGAttack extends Rectangle{
     HVGAttack(int player1LocationX, int player1LocationY, int width, int height){
         super(player1LocationX, player1LocationY, width, height);
         random = new Random();
-//        getY(); //put direct hit or random here
-//        getX();
         double chance = Math.random();
         if(chance > .5){
             int direction = 1;

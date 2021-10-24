@@ -16,6 +16,7 @@ public class HVGPlayer extends Rectangle{
     int yVelocity;
     int xVelocity;
     Graphics g;
+    static int playerScore;
 
     HVGPlayer(int xAxisStart, int yAxisStart, int player_width, int player_height, int id){
         super(xAxisStart, yAxisStart, player_width, player_height);
