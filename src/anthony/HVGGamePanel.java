@@ -3,6 +3,7 @@ package anthony;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 
 public class HVGGamePanel extends JPanel implements Runnable{
@@ -132,7 +133,14 @@ public class HVGGamePanel extends JPanel implements Runnable{
             newPlayer();
             newAttack();
         }
-
+        if(score.goblinHealth<=0){
+            System.out.println("Try again.");
+            score.goblin =0;
+            score.goblinHealth=500;
+            score.level=1;
+            newPlayer();
+            newAttack();
+        } //game reset
     }
 
     public void run(){
