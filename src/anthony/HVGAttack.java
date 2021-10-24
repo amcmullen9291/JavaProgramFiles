@@ -11,21 +11,38 @@ public class HVGAttack extends Rectangle{
     Random random;
     int xVelocity;
     int yVelocity;
-    int movingSpeed = 2;
+    int movingSpeed = 3;
 
     HVGAttack(int player1LocationX, int player1LocationY, int width, int height){
         super(player1LocationX, player1LocationY, width, height);
         random = new Random();
         getY(); //put direct hit or random here
         getX();
-        int direction = 1;
-        direction++;
-        setXDirection(direction);
-        int yDirection =(int) Math.random();
-        if(yDirection > .5){
-            yDirection++;
-//            move();
+//        int direction = 1;
+//        direction++;
+//        setXDirection(direction*movingSpeed);
+        double chance = Math.random();
+        if(chance > .5){
+            int direction = 1;
+            direction++;
+            setXDirection(direction*movingSpeed);
         }
+        if(chance < .5){
+            int direction = 1;
+            direction++;
+            setXDirection(direction*movingSpeed);
+            int yDirection = random.nextInt(2);
+            if(yDirection==0){
+                yDirection--;
+                setYDirection(yDirection*movingSpeed);
+                System.out.println("Direction-- value: " + yDirection);
+            }else{
+                yDirection++;
+                setYDirection(yDirection*movingSpeed);
+                System.out.println("Direction++ value: " + yDirection);
+            }
+        }
+
     }
 
     public void targetGoblin (int player1LocationX, int player1LocationY){
@@ -41,7 +58,7 @@ public class HVGAttack extends Rectangle{
         xVelocity = direction;
     }
     public void setYDirection (int yDirection){
-        xVelocity = yDirection;
+        yVelocity = yDirection;
     }
 
 

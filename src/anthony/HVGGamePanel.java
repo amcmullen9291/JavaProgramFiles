@@ -107,6 +107,14 @@ public class HVGGamePanel extends JPanel implements Runnable{
             newAttack();
             move();
         }
+        if(attack.y> GAME_HEIGHT){
+            newAttack();
+            move();
+        }
+        if(attack.y<= 0){
+            newAttack();
+            move();
+        }
     }
 
     public void run(){
