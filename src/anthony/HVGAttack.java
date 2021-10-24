@@ -11,7 +11,7 @@ public class HVGAttack extends Rectangle{
     Random random;
     int xVelocity;
     int yVelocity;
-    int movingSpeed = 3;
+    int movingSpeed = 5;
 
     HVGAttack(int player1LocationX, int player1LocationY, int width, int height){
         super(player1LocationX, player1LocationY, width, height);
@@ -37,7 +37,8 @@ public class HVGAttack extends Rectangle{
                 setYDirection(yDirection*movingSpeed);
                 System.out.println("Direction-- value: " + yDirection);
             }else{
-                yDirection++;
+                int angle = random.nextInt(5 - 1 + 1) + 1;
+                yDirection = yDirection++*angle;
                 setYDirection(yDirection*movingSpeed);
                 System.out.println("Direction++ value: " + yDirection);
             }
