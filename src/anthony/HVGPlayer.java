@@ -163,8 +163,22 @@ public class HVGPlayer extends Rectangle{
     public void draw(Graphics g){
         if(id==1){
             g.setColor(Color.yellow);
-        }else{
+        }else if(id==2){
             g.setColor(Color.DARK_GRAY);
+        }else if(id==3){
+            g.setColor(Color.CYAN);
+        }else if(id==4){
+            g.setColor(Color.PINK);
+        }else if(id==5){
+            g.setColor(Color.RED);
+        }else if(id==6){
+            g.setColor(Color.BLUE);
+        }else if(id==7){
+            g.setColor(Color.RED);
+        }else if(id==8){
+            g.setColor(Color.BLACK);
+        }else if(id==9){
+            g.setColor(Color.WHITE);
         }
         g.fillRect(x,y,width,height);
     }

@@ -23,6 +23,15 @@ public class HVGGamePanel extends JPanel implements Runnable{
     Random random;
     HVGPlayer player1;
     HVGPlayer goblin;
+    HVGPlayer wall1;
+    HVGPlayer wall2;
+    HVGPlayer wall3;
+    HVGPlayer wall4;
+    HVGPlayer wall5;
+    HVGPlayer wall6;
+    HVGPlayer wall7;
+
+
     HVGAttack attack;
     HVGScore score;
     Graphics graphics;
@@ -58,6 +67,14 @@ public class HVGGamePanel extends JPanel implements Runnable{
     public void newPlayer() {
         player1 = new HVGPlayer(0,(GAME_HEIGHT/2)-(player_height/2),player_width, player_height, 1 );
         goblin = new HVGPlayer(GAME_WIDTH-goblin_width,15,goblin_width, goblin_height,2 );
+        wall1 = new HVGPlayer(GAME_WIDTH/3,GAME_HEIGHT/2, 25,245,3);
+        wall2 = new HVGPlayer((GAME_WIDTH/3)+260,(GAME_HEIGHT/2)-150, 25,245,4);
+        wall3 = new HVGPlayer((GAME_HEIGHT/2)-150,(GAME_HEIGHT/2)-150, 245,25,5);
+        wall4 = new HVGPlayer((GAME_HEIGHT/2)-190,GAME_WIDTH/3, 245,35,6);
+        wall5 = new HVGPlayer((GAME_HEIGHT/2)-150,(GAME_HEIGHT/2)-150, 200,55,7);
+        wall6 = new HVGPlayer(GAME_WIDTH-255,(GAME_HEIGHT/2)+150, 255,24,8);
+        wall7 = new HVGPlayer(GAME_WIDTH-200,200, 100,100,9);
+
     }
 
     public void paint(Graphics g) {
@@ -72,6 +89,13 @@ public class HVGGamePanel extends JPanel implements Runnable{
         goblin.draw(g);
         attack.draw(g);
         score.draw(g);
+        wall1.draw(g);
+        wall2.draw(g);
+        wall3.draw(g);
+        wall4.draw(g);
+        wall5.draw(g);
+        wall6.draw(g);
+        wall7.draw(g);
     }
 
     public void move(){
@@ -147,6 +171,19 @@ public class HVGGamePanel extends JPanel implements Runnable{
                 newAttack();
                 move();
         }//battle result
+        if((goblin.intersects(wall1))||(goblin.intersects(wall2))||(goblin.intersects(wall3))){
+            goblin.setXDirection(0);
+        }
+        if((goblin.intersects(wall4))||(goblin.intersects(wall5))||(goblin.intersects(wall6))){
+            goblin.setXDirection(0);
+        }
+        if(goblin.intersects(wall7)){
+            goblin.setXDirection(0);
+        }
+        if(goblin.intersects(wall6)){
+            goblin.setYDirection(1);
+
+        }
     }
 
     public void run(){
