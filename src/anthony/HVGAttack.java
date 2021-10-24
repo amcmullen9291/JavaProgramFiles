@@ -16,11 +16,8 @@ public class HVGAttack extends Rectangle{
     HVGAttack(int player1LocationX, int player1LocationY, int width, int height){
         super(player1LocationX, player1LocationY, width, height);
         random = new Random();
-        getY(); //put direct hit or random here
-        getX();
-//        int direction = 1;
-//        direction++;
-//        setXDirection(direction*movingSpeed);
+//        getY(); //put direct hit or random here
+//        getX();
         double chance = Math.random();
         if(chance > .5){
             int direction = 1;
@@ -35,12 +32,10 @@ public class HVGAttack extends Rectangle{
             if(yDirection==0){
                 yDirection--;
                 setYDirection(yDirection*movingSpeed);
-                System.out.println("Direction-- value: " + yDirection);
             }else{
                 int angle = random.nextInt(5 - 1 + 1) + 1;
                 yDirection = yDirection++*angle;
                 setYDirection(yDirection*movingSpeed);
-                System.out.println("Direction++ value: " + yDirection);
             }
         }
 
