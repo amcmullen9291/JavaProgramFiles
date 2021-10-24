@@ -7,6 +7,7 @@ import java.awt.Color;
 
 
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
 
 public class HumansVsGoblins {
     static String userName= "";
@@ -15,5 +16,15 @@ public class HumansVsGoblins {
 
         HVGGameFrame frame = new HVGGameFrame();
 
+        HumansVsGoblins overrideToString = new HumansVsGoblins();
+        overrideToString.levelComplete();
+
+        HVGLevelUp player = new HVGLevelUp();
+        player.levelComplete();
     }
+
+    void levelComplete(){
+        System.out.println("Congratulations!");
+    }
+
 }

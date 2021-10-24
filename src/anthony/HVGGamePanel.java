@@ -26,6 +26,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
     HVGAttack attack;
     HVGScore score;
     Graphics graphics;
+//    HVGScore.Congrats congrats;
 
 
     HVGGamePanel(){
@@ -70,6 +71,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
         player1.draw(g);
         goblin.draw(g);
         attack.draw(g);
+        score.draw(g);
     }
 
     public void move(){
@@ -114,6 +116,22 @@ public class HVGGamePanel extends JPanel implements Runnable{
         if(attack.y < 0){
             newAttack();
             move();
+        }
+        //checks for direct hit
+        if(attack.intersects(goblin)){
+            System.out.println("Direct hit"); //prints multiple times bc of refresh rate
+            score.goblinHealth -= 5;
+            System.out.println("your health: " + score.goblinHealth + " units left.");
+        }
+        if(goblin.x==0){
+            System.out.println("Level up!");
+            score.goblin +=50;
+            score.level++;
+            attack.movingSpeed++;
+            System.out.println("level " + score.level + "!" );
+            System.out.println("Current total: " + score.goblin);
+            newPlayer();
+            newAttack();
         }
 
     }
