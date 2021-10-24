@@ -103,18 +103,19 @@ public class HVGGamePanel extends JPanel implements Runnable{
         if(goblin.x >=(GAME_WIDTH-player_width)){
             goblin.x=GAME_WIDTH-player_width;
         }
-        if(attack.x> GAME_WIDTH){
+        if(attack.x >= GAME_WIDTH){
             newAttack();
             move();
         }
-        if(attack.y> GAME_HEIGHT){
+        if(attack.y >= GAME_HEIGHT){
             newAttack();
             move();
         }
-        if(attack.y<= 0){
+        if(attack.y < 0){
             newAttack();
             move();
         }
+
     }
 
     public void run(){
@@ -139,7 +140,6 @@ public class HVGGamePanel extends JPanel implements Runnable{
         public void keyPressed(KeyEvent e){
             player1.keyPressed(e);
             goblin.keyPressed(e);
-//            attack.keyPressed(e);
         }
 
         public void keyReleased(KeyEvent e){

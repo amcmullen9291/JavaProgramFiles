@@ -25,9 +25,9 @@ public class HVGAttack extends Rectangle{
         if(chance > .5){
             int direction = 1;
             direction++;
-            setXDirection(direction*movingSpeed);
+            setXDirection(direction*movingSpeed); //targetGoblin()
         }
-        if(chance < .5){
+        if(chance < .5){ //missedTarget()
             int direction = 1;
             direction++;
             setXDirection(direction*movingSpeed);
@@ -52,7 +52,6 @@ public class HVGAttack extends Rectangle{
     public void missedShot( int player1LocationX, int player1LocationY){
         random = new Random();
     } // arguments come from 'player1.getX()' and 'player1.getY()' methods
-
 
     public void setXDirection (int direction){
         xVelocity = direction;
