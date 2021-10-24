@@ -46,19 +46,61 @@ public class HVGPlayer extends Rectangle{
                 if(e.getKeyCode()==KeyEvent.VK_LEFT){
                     setXDirection(-goblinSpeed);
                     move();
+                    try {
+                        Robot robot = new Robot();
+                        // Simulate a key press
+                        for(int robotMove =0; robotMove<3; robotMove++) {
+                            robot.keyPress(KeyEvent.VK_E);
+                            robot.keyRelease(KeyEvent.VK_E);
+                        }
+                    } catch (AWTException bot) {
+                        bot.printStackTrace();
+                    }
                 }
                 if(e.getKeyCode()==KeyEvent.VK_RIGHT){
                     setXDirection(goblinSpeed);
                     move();
+                    try {
+                        Robot robot = new Robot();
+                        // Simulate a key press
+                        for(int robotMove =0; robotMove<3; robotMove++) {
+                            robot.keyPress(KeyEvent.VK_E);
+                            robot.keyRelease(KeyEvent.VK_E);
+                        }
+                    } catch (AWTException bot) {
+                        bot.printStackTrace();
+                    }
                 }
                 if(e.getKeyCode()==KeyEvent.VK_UP){
                     setYDirection(-goblinSpeed);
                     move();
+                    try {
+                        Robot robot = new Robot();
+                        // Simulate a key press
+                        for(int robotMove =0; robotMove<3; robotMove++) {
+                            robot.keyPress(KeyEvent.VK_N);
+                            robot.keyRelease(KeyEvent.VK_N);
+                        }
+                    } catch (AWTException bot) {
+                        bot.printStackTrace();
+                    }
+
                 }
 
                 if(e.getKeyCode()==KeyEvent.VK_DOWN){
                     setYDirection(goblinSpeed);
                     move();
+                    try {
+                        Robot robot = new Robot();
+                        // Simulate a key press
+                        for(int robotMove =0; robotMove<3; robotMove++) {
+                            robot.keyPress(KeyEvent.VK_S);
+                            robot.keyRelease(KeyEvent.VK_S);
+                        }
+                    } catch (AWTException bot) {
+                        bot.printStackTrace();
+                    }
+
                 }
                 break;
         }
@@ -91,16 +133,16 @@ public class HVGPlayer extends Rectangle{
                     setXDirection(0);
                     move();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                if(e.getKeyCode()==KeyEvent.VK_L){
                     setXDirection(0);
                     move();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                if(e.getKeyCode()==KeyEvent.VK_UP){
                     setYDirection(0);
                     move();
                 }
 
-                if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                if(e.getKeyCode()==KeyEvent.VK_DOWN){
                     setYDirection(0);
                     move();
                 }
