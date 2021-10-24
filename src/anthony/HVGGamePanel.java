@@ -160,7 +160,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
             lastTime = now;
             if(delta>=1){
                 move();
-          g      checkContact();
+                checkContact();
                 repaint();
                 delta--;
             }
