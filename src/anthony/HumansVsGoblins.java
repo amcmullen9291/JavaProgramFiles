@@ -1,8 +1,4 @@
 package anthony;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
 
 public class HumansVsGoblins {
 
@@ -10,15 +6,23 @@ public class HumansVsGoblins {
 
         HVGGameFrame frame = new HVGGameFrame();
 
+
         HumansVsGoblins overrideToString = new HumansVsGoblins();
         overrideToString.levelComplete();
 
-        HVGLevelUp player = new HVGLevelUp();
-        player.levelComplete();
+        Dialogue welcome = new Dialogue();
+        welcome.levelComplete();
     }
 
-    void levelComplete(){
+    public void levelComplete() {
         System.out.println("Congratulations!");
     }
 
+    static class Dialogue extends HumansVsGoblins {
+
+        @Override
+        public void levelComplete() {
+            System.out.println("Your are ready for another Challenge.");
+        }
+    }
 }
