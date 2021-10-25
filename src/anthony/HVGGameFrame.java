@@ -28,8 +28,8 @@ public class HVGGameFrame extends JFrame{
         JLabel enumeration = new JLabel("Reach the Goblin's treasure ");
         JLabel enumeration2 = new JLabel("to complete the challenge. ");
         JLabel enumeration3 = new JLabel("Use the arrow keys to navigate");
-        JLabel enumeration4 = new JLabel("navigate. The space bar stops ");
-        JLabel enumeration5 = new JLabel("forward movement.");
+        JLabel enumeration4 = new JLabel("navigate. The space bar will ");
+        JLabel enumeration5 = new JLabel("stop your movement.");
 
         theRules.setBounds(50, 75, 200, 35);
         enumeration.setBounds(50,105,200,15);

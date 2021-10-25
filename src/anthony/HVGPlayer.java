@@ -130,7 +130,11 @@ public class HVGPlayer extends Rectangle{
                     setXDirection(0);
                     move();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_L){
+                if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+                    setXDirection(0);
+                    move();
+                }
+                if(e.getKeyCode()==KeyEvent.VK_LEFT){
                     setXDirection(0);
                     move();
                 }
