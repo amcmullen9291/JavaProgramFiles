@@ -30,7 +30,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
     HVGPlayer wall5;
     HVGPlayer wall6;
     HVGPlayer wall7;
-
+    HVGPlayer trophy;
 
     HVGAttack attack;
     HVGScore score;
@@ -74,6 +74,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
         wall5 = new HVGPlayer((GAME_HEIGHT/2)-150,(GAME_HEIGHT/2)-150, 200,55,7);
         wall6 = new HVGPlayer(GAME_WIDTH-255,(GAME_HEIGHT/2)+150, 255,24,8);
         wall7 = new HVGPlayer(GAME_WIDTH-200,200, 100,100,9);
+        trophy = new HVGPlayer((GAME_HEIGHT/2)+40,375, 15,15,10);
 
     }
 
@@ -96,6 +97,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
         wall5.draw(g);
         wall6.draw(g);
         wall7.draw(g);
+        trophy.draw(g);
     }
 
     public void move(){
@@ -147,7 +149,7 @@ public class HVGGamePanel extends JPanel implements Runnable{
             score.goblinHealth -= 7;
             System.out.println("your health: " + score.goblinHealth + " units left.");
         }
-        if(goblin.x==0){
+        if(goblin.intersects(trophy)){
             System.out.println("Level up!");
             score.goblin +=50;
             score.level++;
@@ -183,9 +185,11 @@ public class HVGGamePanel extends JPanel implements Runnable{
         if(goblin.intersects(wall6)){
             goblin.setYDirection(1);
         }
-        if(player1.x >=GAME_WIDTH){
+        if(player1.x >=GAME_WIDTH-player_width){
             newPlayer();
             newAttack();
+            System.out.println("You have been invaded.");
+            score.goblin -= 25;
         }
     }
 

@@ -25,9 +25,9 @@ public class HVGGameFrame extends JFrame{
         JLabel labelM = new JLabel("Humans vs. Goblins");
         labelM.setBounds(50, 50, 200, 10);
         JLabel theRules = new JLabel("The Rules:");
-        JLabel enumeration = new JLabel("Reach the other side of ");
-        JLabel enumeration2 = new JLabel("the battle field to complete the ");
-        JLabel enumeration3 = new JLabel("challenge. Use the arrow keys to navigate");
+        JLabel enumeration = new JLabel("Reach the Goblin's treasure ");
+        JLabel enumeration2 = new JLabel("to complete the challenge. ");
+        JLabel enumeration3 = new JLabel("Use the arrow keys to navigate");
         JLabel enumeration4 = new JLabel("navigate. The space bar stops ");
         JLabel enumeration5 = new JLabel("forward movement.");
 

@@ -179,6 +179,8 @@ public class HVGPlayer extends Rectangle{
             g.setColor(Color.BLACK);
         }else if(id==9){
             g.setColor(Color.WHITE);
+        } else if(id==10){
+            g.setColor(Color.YELLOW);
         }
         g.fillRect(x,y,width,height);
     }
