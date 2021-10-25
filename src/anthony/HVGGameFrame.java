@@ -27,7 +27,7 @@ public class HVGGameFrame extends JFrame{
         JLabel theRules = new JLabel("The Rules:");
         JLabel enumeration = new JLabel("Reach the Goblin's treasure ");
         JLabel enumeration2 = new JLabel("to complete the challenge. ");
-        JLabel enumeration3 = new JLabel("Use the arrow keys to navigate");
+        JLabel enumeration3 = new JLabel("Use the arrow keys to");
         JLabel enumeration4 = new JLabel("navigate. The space bar will ");
         JLabel enumeration5 = new JLabel("stop your movement.");
 
