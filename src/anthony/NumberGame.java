@@ -13,9 +13,11 @@ public class NumberGame {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to \"Guess the Number\"! ");
         System.out.println("Choose a number; any number:");
-
-        secretNumber = keyboard.nextInt();
-
+        try {
+            secretNumber = keyboard.nextInt();
+        }catch(Exception e){
+            System.out.println("please enter a valid response.");
+        }
         System.out.println("good choice!");
         System.out.println("");
         System.out.println("NOW ITS MY TURN. Guess a number between 1 and 20.");
