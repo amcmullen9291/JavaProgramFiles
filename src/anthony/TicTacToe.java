@@ -128,16 +128,21 @@ public class TicTacToe {
 
     private void playerTurn(char[][] board, Scanner scanner) {
         String userInput;
-        while (true) {
-            System.out.println("Choose an available space (1-9).");
-            userInput = scanner.nextLine();
-            if (isValidMove(board, userInput)){
-                break;
-            } else {
-                System.out.println(userInput + " is not a valid move.");
+            while (true) {
+                System.out.println("Choose an available space (1-9).");
+                try {
+                    userInput = scanner.nextLine();
+                    if (isValidMove(board, userInput)) {
+                        break;
+                    } else {
+                        System.out.println(userInput + " is not a valid move.");
+                    }
+                }catch(Exception e){
+                    System.out.println("Please make a valid selection.");
+                }
             }
-        }
         placeMove(board, userInput, userToken);
+
     }
 
 
@@ -188,6 +193,7 @@ public class TicTacToe {
     public void userTokenInput(){
         Scanner input = new Scanner(System.in);
                System.out.println("Would you like to be Xs or Os?");
+               try{
                String userTokenInput = input.nextLine();
                userToken = Character.toUpperCase(userTokenInput.charAt(0));
                while(!((userToken == 'X') || (userToken == 'O'))) {
@@ -196,7 +202,7 @@ public class TicTacToe {
                     userToken = Character.toUpperCase(userTokenInput.charAt(0));
                }
         System.out.println("You Chose: " + userToken);
-               try {
+//               try {
                    if (userToken == 'X') {
                        computerToken = 'O';
                    } else if (userToken == 'O') {
@@ -205,5 +211,5 @@ public class TicTacToe {
                }catch(Exception e){
                    System.out.println("An error occurred.");
                }
-           }
+       }
 }
