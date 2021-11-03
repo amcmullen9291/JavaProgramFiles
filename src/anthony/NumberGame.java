@@ -24,17 +24,21 @@ public class NumberGame {
         String[] foods = {"bananas", "corndogs", "pillowcases", "four leaf clovers", "tacos and burritos", "hula hoops", "bottles of mouth wash", "sticks of chewing gum", "corn cob pipes"};
         int randomFood = (int) (Math.random() * 6 + 1);
         String endFood = foods[randomFood];
-        while (!bingo) {
-            System.out.print("Guess My Number.:");
-            userGuess = keyboard.nextInt();
-            if (userGuess == random) {
-                bingo = true;
-                System.out.println("Bingo! I will give you " + secretNumber + " "+ endFood + ". Let's play again?");
-            } else if (userGuess < random) {
-                System.out.println("Higher.");
-            } else if (userGuess > random) {
-                System.out.println("Lower.");
+        try {
+            while (!bingo) {
+                System.out.print("Guess My Number.:");
+                userGuess = keyboard.nextInt();
+                if (userGuess == random) {
+                    bingo = true;
+                    System.out.println("Bingo! I will give you " + secretNumber + " " + endFood + ". Let's play again?");
+                } else if (userGuess < random) {
+                    System.out.println("Higher.");
+                } else if (userGuess > random) {
+                    System.out.println("Lower.");
+                }
             }
+        }catch(Exception e){
+            System.out.println("An error occurred.");
         }
     }
 }
