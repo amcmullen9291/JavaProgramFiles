@@ -2,7 +2,7 @@
 
 root directory for Java Bootcamp programs
 
-Dragons Cave: a game of change using the Math.random function. 
+Dragons Cave: a game of chance using the Math.random function. 
 Hangman: Five chances to guess the mystery word.
 NumbersGame: Guess the magic number.
 TicTacToe: Choose 'X' or 'O' and try to beat the computer.
