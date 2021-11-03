@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class HangmanGame {
     public static void main(String[] args) {
         String[] words = {"puppy", "vacation", "football", "oxymoron", "hyperbole", "champagne", "germany", "javascript", "java", "modifier", "sandwich", "cartoon", "campus", "compass", "water", "salamander", "grape", "orange", "auburn", "kalamazoo"};
-        int random  = (int) (Math.random() * words.length);
+        int random = (int) (Math.random() * words.length);
         String secretWord = words[random];
         char[] letters = new char[secretWord.length()];
 
@@ -19,12 +19,12 @@ public class HangmanGame {
         System.out.println(letters);
 
         int lives = 5;
-        int lettersLeft =secretWord.length();
+        int lettersLeft = secretWord.length();
 
-        Scanner scanner= new Scanner(System.in);
-        while(lives > 0 && lettersLeft > 0){
+        Scanner scanner = new Scanner(System.in);
+        while (lives > 0 && lettersLeft > 0) {
             System.out.print("Guesses remaining: ");
-            for (int i =0; i < lives; i++){
+            for (int i = 0; i < lives; i++) {
                 System.out.print("X");
             }
 
@@ -39,59 +39,63 @@ public class HangmanGame {
             Matcher matcher = pattern.matcher(usersGuess);
             boolean matches = matcher.matches();
             boolean isCorrect = false;
-            if(matches && usersGuess.length() == 1) {
-                char letter = Character.toLowerCase(usersGuess.charAt(0));
-                System.out.println("You chose: " + letter); // case test
-                for(int x=0; x<secretWord.length(); x++){
-                    if(secretWord.charAt(x) == letter){
-                        letters[x] = letter;
-                        System.out.println(letters);
-                        System.out.println(" ");
-                        isCorrect=true;
-                        --lettersLeft;
-                        if(lettersLeft == 0){
-                            System.out.println("Congratulations!");
-                            System.exit(0);
-                        }
-                    }
-                }
-                if(!isCorrect){
-                    --lives;
-                    System.out.println(letters);
-                    System.out.println(" ");
-                }
-            }else {
-                System.out.println("That was not a letter. Please select one letter, A-Z.");
-                usersGuess = scanner.nextLine();
-                Matcher matcher2 = pattern.matcher(usersGuess);
-                boolean matches2 = matcher2.matches();
-                if (matches2 && usersGuess.length() == 1) {
+            try {
+                if (matches && usersGuess.length() == 1) {
                     char letter = Character.toLowerCase(usersGuess.charAt(0));
-                    System.out.println("You chose: " + letter); //case check
+                    System.out.println("You chose: " + letter); // case test
                     for (int x = 0; x < secretWord.length(); x++) {
                         if (secretWord.charAt(x) == letter) {
                             letters[x] = letter;
                             System.out.println(letters);
                             System.out.println(" ");
-                            isCorrect=true;
+                            isCorrect = true;
                             --lettersLeft;
+                            if (lettersLeft == 0) {
+                                System.out.println("Congratulations!");
+                                System.exit(0);
+                            }
                         }
                     }
-                    if(!isCorrect){
+                    if (!isCorrect) {
                         --lives;
                         System.out.println(letters);
                         System.out.println(" ");
                     }
                 } else {
-                    System.out.println("GOODBYE!");
-                    System.exit(0);
+                    System.out.println("That was not a letter. Please select one letter, A-Z.");
+                    usersGuess = scanner.nextLine();
+                    Matcher matcher2 = pattern.matcher(usersGuess);
+                    boolean matches2 = matcher2.matches();
+                    if (matches2 && usersGuess.length() == 1) {
+                        char letter = Character.toLowerCase(usersGuess.charAt(0));
+                        System.out.println("You chose: " + letter); //case check
+                        for (int x = 0; x < secretWord.length(); x++) {
+                            if (secretWord.charAt(x) == letter) {
+                                letters[x] = letter;
+                                System.out.println(letters);
+                                System.out.println(" ");
+                                isCorrect = true;
+                                --lettersLeft;
+                            }
+                        }
+                        if (!isCorrect) {
+                            --lives;
+                            System.out.println(letters);
+                            System.out.println(" ");
+                        }
+                    } else {
+                        System.out.println("GOODBYE!");
+                        System.exit(0);
+                    }
                 }
+            } catch (Exception e) {
+                System.out.println("Error loading... ");
             }
+            if (lives == 0) {
+                System.out.println("Out of guesses.");
+            }
+            System.out.println("Exiting Hangman...");
         }
-        if(lives ==0){
-            System.out.println("Out of guesses.");
-        }
-        System.out.println("Exiting Hangman...");
     }
 }
 
