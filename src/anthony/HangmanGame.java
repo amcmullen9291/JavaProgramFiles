@@ -20,6 +20,7 @@ public class HangmanGame {
 
         int lives = 5;
         int lettersLeft = secretWord.length();
+        String usersGuess = "";
 
         Scanner scanner = new Scanner(System.in);
         while (lives > 0 && lettersLeft > 0) {
@@ -32,7 +33,11 @@ public class HangmanGame {
 
             System.out.println("Guess a letter.");
             System.out.println("The secret word is: " + secretWord);
-            String usersGuess = scanner.nextLine();
+            try {
+                usersGuess = scanner.nextLine();
+            }catch(Exception e){
+                System.out.println("An error occurred.");
+            }
 
             String patternString = ".*[A-Za-z]{1}.*";
             Pattern pattern = Pattern.compile(patternString);
