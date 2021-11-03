@@ -88,10 +88,14 @@ public class TicTacToe {
         }
         System.out.println("Computer chose " + computerMove);
 //        char gamePiece = ' ';
-        if (userToken == 'O') {
-            computerToken = 'X';
-        }else{
-            computerToken = 'O';
+        try {
+            if (userToken == 'O') {
+                computerToken = 'X';
+            } else {
+                computerToken = 'O';
+            }
+        }catch(Exception e){
+            System.out.println("An Error occurred.");
         }
         placeMove(board, Integer.toString(computerMove), computerToken);
     }
@@ -192,10 +196,14 @@ public class TicTacToe {
                     userToken = Character.toUpperCase(userTokenInput.charAt(0));
                }
         System.out.println("You Chose: " + userToken);
-               if(userToken == 'X'){
-                   computerToken ='O';
-               }else if(userToken=='O'){
-                   computerToken = 'X';
+               try {
+                   if (userToken == 'X') {
+                       computerToken = 'O';
+                   } else if (userToken == 'O') {
+                       computerToken = 'X';
+                   }
+               }catch(Exception e){
+                   System.out.println("An error occurred.");
                }
            }
 }
