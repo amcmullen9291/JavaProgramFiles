@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class NumberGame {
     public static void main(String[] args) {
-        int secretNumber;
+        int secretNumber =0;
         int userGuess;
         boolean bingo = false;
 
